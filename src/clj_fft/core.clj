@@ -12,5 +12,6 @@
 (defn -main
   "Fourier transforms!"
   [& args]
-  (println "This is just a library!")
+  #_(println "This is just a library!")
+  (pprint (fft [1 2 3]))
 )
