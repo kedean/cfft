@@ -46,3 +46,8 @@
     (* (real first) second)
     (* (imag first) second)
     ))
+
+(defn equals [^Complex first ^Complex second]
+  (and
+    (= (real first) (real second))
+    (= (imag first) (imag second))))
