@@ -20,7 +20,7 @@
 
 ;Helpers to perform summations
 (defn sum [l] (reduce + l))
-(defn complex-sum [l] (reduce add l))
+(defn complex-sum [l] (reduce complex-add l))
 
 (defn fft-1d [^clojure.lang.ISeq m]
   "Computes the fourier transform of a 1-dimensional list l"
@@ -31,7 +31,7 @@
       (fn fft-sample-1d [k]
         "Computes the 1d fourier transform of a single sample"
         (let [neg2pi_kN (* k neg2piN)]
-        (reduce add
+        (reduce complex-add
           (map-indexed
             (fn [i v]
               (euler-expt-and-mult

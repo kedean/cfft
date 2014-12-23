@@ -1,9 +1,8 @@
-(ns clj-fft.core-test
+(ns clj-fft.fft-test
   (:require [clojure.test :refer :all]
-            [clj-fft.core :refer :all])
+            [clj-fft.fft :refer :all])
   (:use clj-fft.complex)
   (:import clj_fft.complex.Complex)
-  (:use clj-fft.fft)
   (:import java.lang.Math))
 
 (defn round [n places]
@@ -31,7 +30,7 @@
           (doall
           (map
             (fn [exp act]
-              (let [diff (sub exp act)]
+              (let [diff (complex-sub exp act)]
                 (do
                   (assert
                     (< (real diff) error-tolerance))
