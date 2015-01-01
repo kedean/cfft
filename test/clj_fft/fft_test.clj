@@ -13,7 +13,31 @@
 
 (def error-tolerance 0.0001)
 
-(deftest a-test
+(deftest fft-test-1d
+  (testing "Kevin needs to implement tests!."
+  (let [
+    expected-out
+    (list
+      (Complex. 10 0)
+      (Complex. -2 2)
+      (Complex. -2 0)
+      (Complex. -2 -2)
+      )
+      actual-out
+      (fft (list 1 2 3 4))
+      ]
+      (doall (map
+        (fn [exp act]
+                (let [diff (complex-sub exp act)]
+                (do
+                  (assert
+                    (< (real diff) error-tolerance))
+                    (assert
+                      (< (imag diff) error-tolerance)))))
+                      expected-out actual-out))
+                      )))
+
+(deftest fft-test-3x3
   (testing "Kevin needs to implement tests!."
     (let [
         expected-out

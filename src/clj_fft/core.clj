@@ -1,6 +1,7 @@
 (ns clj-fft.core
   (:use clj-fft.complex)
   (:use clojure.pprint)
+  (:use clj-fft.matrix)
   (:import clj_fft.complex.Complex)
   (:use clj-fft.fft)
   (:import java.awt.image.BufferedImage)
@@ -12,5 +13,5 @@
 (defn -main
   "Fourier transforms!"
   [& args]
-  (println "This is just a library!")
+  (println "This is just a library")
 )
