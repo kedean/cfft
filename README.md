@@ -2,6 +2,8 @@
 
 A pure Clojure implementation of Fourier transforms.
 
+![Travis CI Build Status](https://travis-ci.org/kedean/clj-fft.svg?branch=master)
+
 ## Usage
 
 clj_fft is intended as a library, import it into your clojure project and call the fft function on any sequence.
