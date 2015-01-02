@@ -15,7 +15,7 @@
 
 (deftest fft-test-1d
   (testing "Kevin needs to implement tests!."
-  (let [
+  (time (let [
     expected-out
     (list
       (Complex. 10 0)
@@ -35,11 +35,11 @@
                     (assert
                       (< (imag diff) error-tolerance)))))
                       expected-out actual-out))
-                      )))
+                      ))))
 
 (deftest fft-test-3x3
   (testing "Kevin needs to implement tests!."
-    (let [
+    (time (let [
         expected-out
         (list
           [(Complex. 45.0 0)         (Complex. -4.5 2.59807621)  (Complex. -4.5 -2.59807621)]
@@ -63,4 +63,23 @@
             exp-level-1 act-level-1
             )))
         expected-out actual-out))
-      )))
+      ))))
+
+(deftest ifft-test-1d
+  (testing "Kevin needs to implement tests!."
+  (time (let [
+      original-list
+      (list 1 2 3)
+      actual-out
+      (ifft (fft original-list))
+      ]
+      (doall (map
+        (fn [exp act]
+                (let [diff (complex-sub exp act)]
+                (do
+                  (assert
+                    (< (real diff) error-tolerance))
+                    (assert
+                      (< (imag diff) error-tolerance)))))
+                      original-list actual-out))
+                      ))))
