@@ -13,6 +13,7 @@
   (imag [num] imaginary_component)
 )
 
+;Since all numeric types are extended with AbstractComplex, the complex operations can be used with any numeric OR a real complex
 (extend Number
   AbstractComplex
   {:real (fn [num] num)
@@ -33,7 +34,7 @@
     (- (imag first) (imag second))
     ))
 
-(defn equals [first second]
+(defn complex-equals [first second]
   (and
     (= (real first) (real second))
     (= (imag first) (imag second))))
