@@ -1,6 +1,6 @@
-(ns clj-fft.fft-test
+(ns clj-fft.core-test
   (:require [clojure.test :refer :all]
-            [clj-fft.fft :refer :all])
+            [clj-fft.core :refer :all])
   (:use clj-fft.complex)
   (:import clj_fft.complex.Complex)
   (:import java.lang.Math))
