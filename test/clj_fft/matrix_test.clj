@@ -10,14 +10,14 @@
       (assert
           (=
             (list 1 2 3)
-            (matrix-apply (fn [mat el indices] (+ 1 el)) (list 0 1 2))
+            (matrix-apply (fn [mat el indices] (+ 1 el)) (list 0 1 2) :all-args)
           )
       )
       ;test a 2d matrix
       (assert
         (=
           (list (list 1 2 3) (list 2 3 4))
-          (matrix-apply (fn [mat el indices] (+ 1 el)) (list (list 0 1 2) (list 1 2 3)))
+          (matrix-apply (fn [mat el indices] (+ 1 el)) (list (list 0 1 2) (list 1 2 3)) :all-args)
         )
       )
       ;test a 3d matrix
@@ -41,6 +41,7 @@
                 (list 2 3 4) (list 3 4 5)
               )
             )
+            :all-args
           )
         )
       )
@@ -70,6 +71,7 @@
                 (+ el 1)) ;the list becomes (2 3 4) before addition occurs
               )
             (list 1 2 3)
+            :all-args
           )
         )
       )
@@ -84,6 +86,7 @@
               counters
             )
             (list 1 2 3)
+            :all-args
           )
         )
       )
@@ -106,6 +109,7 @@
                 (+ el 1)) ;the list becomes (2 3 4) before addition occurs
               )
             (list (list 1 2 3) (list 4 5 6))
+            :all-args
           )
         )
       )
@@ -120,6 +124,7 @@
               counters
             )
             (list (list 1 2 3) (list 4 5 6))
+            :all-args
           )
         )
       )
