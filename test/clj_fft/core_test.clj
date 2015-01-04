@@ -13,7 +13,7 @@
 (def error-tolerance 0.0001)
 
 (deftest fft-test-1d
-  (testing "Kevin needs to implement tests!."
+  (testing "Check the result of transforming a 1d sequence"
   (let [
     expected-out
     (list
@@ -37,7 +37,7 @@
                       )))
 
 (deftest fft-test-3x3
-  (testing "Kevin needs to implement tests!."
+  (testing "Check the result of transforming a 3x3 matrix"
     (let [
         expected-out
         (list
@@ -65,7 +65,7 @@
       )))
 
 (deftest ifft-test-1d
-  (testing "Kevin needs to implement tests!."
+  (testing "Check the results of inverting a 1d sequence, by transforming then inverting, and checking for differences"
     (let [
       original-list
       (list 1 2 3)
