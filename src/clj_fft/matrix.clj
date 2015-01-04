@@ -1,26 +1,6 @@
 (ns clj-fft.matrix)
 
-(defn typed-list? [l]
-  "True iff every item in the list is the same type"
-  (apply = (map type l)))
-
-(defn equiv-list? [l]
-  "True iff every item in the list is equal"
-  (apply = l))
-
-(def dimensions (memoize (fn [l]
-  (do
-    (assert (typed-list? l) "Elements of matrix must be of same type")
-    (let [c (count l)]
-      (if
-        (or (seq? (first l)) (vector? (first l)))
-        (let [dimlist (map dimensions l)]
-          (do
-            (assert (equiv-list? dimlist) "Elements of matrix must be of equal dimensions")
-            (cons c (first dimlist)))
-        )
-        (list c)))
-  ))))
+; Note that these functions assume uniform matrices as input. Non-matrix sequences, such as [[1 2 3] [1 2]] will produce undefined behavior.
 
 (defn matrix-apply [f mat]
   "Applies the function f to every element of the matrix mat. The function should take the original matrix as the first argument, the atomic element as the second, and a collection of indices as the third argument, in consecutive order."
