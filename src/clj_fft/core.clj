@@ -52,12 +52,12 @@
   "Computes the fourier transform of an n-dimensional matrix m"
   (matrix-apply
     (fn [mat el indices]
-      (matrix-summation complex-add (partial fft-nd-sample indices) mat))
-    m))
+      (matrix-summation complex-add (partial fft-nd-sample indices) mat :all-args))
+    m :all-args))
 
 (defn ifft [m]
   "Computes the inverse fourier transform of an n-dimensional matrix m"
   (matrix-apply
     (fn [mat el indices]
-      (matrix-summation complex-add (partial ifft-nd-sample indices) mat))
-    m))
+      (matrix-summation complex-add (partial ifft-nd-sample indices) mat :all-args))
+    m :all-args))
