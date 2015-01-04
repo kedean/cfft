@@ -8,12 +8,6 @@
   "Computes the euler exponent of n as a complex number"
   (complex (Math/cos n) (Math/sin n)))
 
-;Exists only as an optimized version of the euler-expt function
-(defn euler-expt-and-mult [n v]
-  "Computes the euler exponent of n and multiplies the resulting complex by the real number v"
-  (let [left (Math/cos n) right (Math/sin n)]
-      (complex (* left v) (* right v))))
-
 ;Stored for the performance benefits
 (def pos2pi (* 2.0 Math/PI))
 (def neg2pi (* -2.0 Math/PI))
