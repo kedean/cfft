@@ -22,10 +22,6 @@
       )
     ) mat (list)))
 
-(defn simple-matrix-apply [f mat]
-  (matrix-apply
-    (fn [mat el indices] ())))
-
 (defn matrix-summation [r f mat & args]
   "Computes the summation of a matrix mat using the function f at each element and the summing function r to sum them. The function should take the original matrix as the first argument, the atomic element as the second, the counter values as the third, and the counter limits as the fourth. The last two arguments are in order of dimension."
   (
