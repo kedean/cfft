@@ -13,7 +13,7 @@
     (assert (typed-list? l) "Elements of matrix must be of same type")
     (let [c (count l)]
       (if
-        (coll? (first l))
+        (or (seq? (first l)) (vector? (first l)))
         (let [dimlist (map dimensions l)]
           (do
             (assert (equiv-list? dimlist) "Elements of matrix must be of equal dimensions")
@@ -27,7 +27,7 @@
   (
     (fn element-apply [el indices]
       (if
-        (coll? el)
+        (or (seq? el) (vector? el))
         ;we need to matrix-apply to the submatrix
         (map-indexed
           (fn [index sub-el]
@@ -42,7 +42,7 @@
   (
     (fn element-summation [el counters limits]
       (if
-        (coll? el)
+        (or (seq? el) (vector? el))
         ;we need to sum the current submatrix
         (reduce
           r

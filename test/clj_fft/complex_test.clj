@@ -1,12 +1,11 @@
 (ns clj-fft.complex-test
   (:require [clojure.test :refer :all]
             [clj-fft.complex :refer :all])
-  (:import clj_fft.complex.Complex)
   (:import java.lang.Math))
 
 (deftest test-new-complex
   (testing "Construct a basic complex number"
-    (Complex. 1 2)
+    (complex 1 2)
   ))
 
 (deftest test-int-is-complex
@@ -32,21 +31,21 @@
     (assert
       (=
         (Math/sqrt 34)
-        (magnitude (Complex. 3 5))))))
+        (magnitude (complex 3 5))))))
 
 (deftest test-complex-phase
   (testing "Complex numbers have phase"
     (assert
       (=
         (Math/atan (/ 5.0 3.0))
-        (phase (Complex. 3 5))))))
+        (phase (complex 3 5))))))
 
 (deftest test-complex-equals
   (testing "Complex equals should check equality"
     (do
-      (assert (complex-equals (Complex. 1 2) (Complex. 1 2)))
-      (assert (not (complex-equals (Complex. 1 2) (Complex. 4 2))))
-      (assert (not (complex-equals (Complex. 1 2) (Complex. 1 5))))
+      (assert (complex-equals (complex 1 2) (complex 1 2)))
+      (assert (not (complex-equals (complex 1 2) (complex 4 2))))
+      (assert (not (complex-equals (complex 1 2) (complex 1 5))))
     )))
 
 (deftest test-complex-add
@@ -54,19 +53,19 @@
     (do
       (assert
         (complex-equals
-          (Complex. 3 5)
+          (complex 3 5)
           (complex-add
-            (Complex. 2 1)
-            (Complex. 1 4)
+            (complex 2 1)
+            (complex 1 4)
           )
         )
       )
 
       (assert
         (complex-equals
-          (Complex. 5 5)
+          (complex 5 5)
           (complex-add
-            (Complex. 2 5)
+            (complex 2 5)
             3
           )
         )
@@ -74,10 +73,10 @@
 
       (assert
         (complex-equals
-          (Complex. 5 5)
+          (complex 5 5)
           (complex-add
             3
-            (Complex. 2 5)
+            (complex 2 5)
           )
         )
       )
@@ -90,19 +89,19 @@
     (do
       (assert
         (complex-equals
-          (Complex. 0 3)
+          (complex 0 3)
           (complex-sub
-            (Complex. 2 4)
-            (Complex. 2 1)
+            (complex 2 4)
+            (complex 2 1)
           )
         )
       )
 
       (assert
         (complex-equals
-          (Complex. -1 5)
+          (complex -1 5)
           (complex-sub
-            (Complex. 2 5)
+            (complex 2 5)
             3
           )
         )
@@ -110,10 +109,10 @@
 
       (assert
         (complex-equals
-          (Complex. 1 -5)
+          (complex 1 -5)
           (complex-sub
             3
-            (Complex. 2 5)
+            (complex 2 5)
           )
         )
       )

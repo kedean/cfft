@@ -2,7 +2,6 @@
   (:require [clojure.test :refer :all]
             [clj-fft.core :refer :all])
   (:use clj-fft.complex)
-  (:import clj_fft.complex.Complex)
   (:import java.lang.Math))
 
 (defn round [n places]
@@ -18,10 +17,10 @@
   (let [
     expected-out
     (list
-      (Complex. 10 0)
-      (Complex. -2 2)
-      (Complex. -2 0)
-      (Complex. -2 -2)
+      (complex 10 0)
+      (complex -2 2)
+      (complex -2 0)
+      (complex -2 -2)
       )
       actual-out
       (fft (list 1 2 3 4))
@@ -42,9 +41,9 @@
     (let [
         expected-out
         (list
-          [(Complex. 45.0 0)         (Complex. -4.5 2.59807621)  (Complex. -4.5 -2.59807621)]
-          [(Complex. -13.5 7.79422863)    (Complex. 0.0 0)           (Complex. 0.0 0)]
-          [(Complex. -13.5 -7.79422863)   (Complex. 0.0 0)           (Complex. 0.0 0)]
+          [(complex 45.0 0)         (complex -4.5 2.59807621)  (complex -4.5 -2.59807621)]
+          [(complex -13.5 7.79422863)    (complex 0.0 0)           (complex 0.0 0)]
+          [(complex -13.5 -7.79422863)   (complex 0.0 0)           (complex 0.0 0)]
         )
         actual-out
         (fft (list [1 2 3] [4 5 6] [7 8 9]))
@@ -67,26 +66,31 @@
 
 (deftest ifft-test-1d
   (testing "Kevin needs to implement tests!."
-  (let [
+    (let [
       original-list
       (list 1 2 3)
       actual-out
       (ifft (fft original-list))
       ]
-      (doall (map
-        (fn [exp act]
-                (let [diff (complex-sub exp act)]
-                (do
-                  (assert
-                    (< (real diff) error-tolerance))
+      (doall
+        (map
+          (fn [exp act]
+                  (let [diff (complex-sub exp act)]
+                  (do
                     (assert
-                      (< (imag diff) error-tolerance)))))
-                      original-list actual-out))
-                      )))
+                      (< (real diff) error-tolerance))
+                      (assert
+                        (< (imag diff) error-tolerance)))))
+            original-list actual-out
+          )
+        )
+      )
+    )
+  )
 
 (deftest fft-complex-input
   (testing "fft should take complex inputs as well."
-    (fft (list (Complex. 1 0) (Complex. 2 0) (Complex. 3 1)))
+    (fft (list (complex 1 0) (complex 2 0) (complex 3 1)))
   ))
 
 (deftest fft-real-input
@@ -96,7 +100,7 @@
 
 (deftest ifft-complex-input
   (testing "ifft should take complex inputs as well."
-    (ifft (list (Complex. 1 0) (Complex. 2 0) (Complex. 3 1)))
+    (ifft (list (complex 1 0) (complex 2 0) (complex 3 1)))
   ))
 
 (deftest ifft-real-input
