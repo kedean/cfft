@@ -4,6 +4,8 @@ A pure Clojure implementation of Fourier transforms.
 
 ![Travis CI Build Status](https://travis-ci.org/kedean/cfft.svg?branch=master)
 
+[![Clojars Project](http://clojars.org/cfft/latest-version.svg)](http://clojars.org/cfft)
+
 ## Usage
 
 cfft is intended as a library, import it into your clojure project and call the fft or ifft function on any matrix.
