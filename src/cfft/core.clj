@@ -1,6 +1,6 @@
-(ns clj-fft.core
-  (:use clj-fft.complex)
-  (:use clj-fft.matrix)
+(ns cfft.core
+  (:use cfft.complex)
+  (:use cfft.matrix)
   (:import java.lang.Math)
   )
 

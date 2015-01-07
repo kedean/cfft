@@ -1,4 +1,4 @@
-(ns clj-fft.complex
+(ns cfft.complex
   (:import java.lang.Math)
 )
 

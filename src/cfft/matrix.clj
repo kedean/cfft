@@ -1,4 +1,4 @@
-(ns clj-fft.matrix)
+(ns cfft.matrix)
 
 ; Note that these functions assume uniform matrices as input. Non-matrix sequences, such as [[1 2 3] [1 2]] will produce undefined behavior.
 

@@ -1,7 +1,7 @@
-(ns clj-fft.core-test
+(ns cfft.core-test
   (:require [clojure.test :refer :all]
-            [clj-fft.core :refer :all])
-  (:use clj-fft.complex)
+            [cfft.core :refer :all])
+  (:use cfft.complex)
   (:import java.lang.Math))
 
 (defn round [n places]

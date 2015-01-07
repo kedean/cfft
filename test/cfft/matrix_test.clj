@@ -1,6 +1,6 @@
-(ns clj-fft.matrix-test
+(ns cfft.matrix-test
   (:require [clojure.test :refer :all]
-            [clj-fft.matrix :refer :all])
+            [cfft.matrix :refer :all])
   )
 
 (deftest test-matrix-apply

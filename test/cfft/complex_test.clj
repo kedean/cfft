@@ -1,6 +1,6 @@
-(ns clj-fft.complex-test
+(ns cfft.complex-test
   (:require [clojure.test :refer :all]
-            [clj-fft.complex :refer :all])
+            [cfft.complex :refer :all])
   (:import java.lang.Math))
 
 (deftest test-new-complex
