@@ -2,7 +2,7 @@
 
 A pure Clojure implementation of Fourier transforms.
 
-![Travis CI Build Status](https://travis-ci.org/kedean/clj-fft.svg?branch=master)
+![Travis CI Build Status](https://travis-ci.org/kedean/cfft.svg?branch=master)
 
 ## Usage
 
