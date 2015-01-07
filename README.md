@@ -1,4 +1,4 @@
-# clj_fft
+# cfft - Clojure Fast Fourier Transform
 
 A pure Clojure implementation of Fourier transforms.
 
@@ -6,11 +6,11 @@ A pure Clojure implementation of Fourier transforms.
 
 ## Usage
 
-clj_fft is intended as a library, import it into your clojure project and call the fft or ifft function on any matrix.
+cfft is intended as a library, import it into your clojure project and call the fft or ifft function on any matrix.
 
 ## Examples
 
-Calling clj_fft with:
+Calling cfft with:
 ````(fft [1 2 3])````
 
 will yield:
