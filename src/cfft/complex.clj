@@ -27,12 +27,17 @@
     (= (imag first) (imag second))))
 
 (defn complex-mult [first second]
-  (complex
+  (let
+    [r1 (real first)
+     r2 (real second)
+     i1 (imag first)
+     i2 (imag second)]
+    (complex
     (-
-      (* (real first) (real second))
-      (* (imag first) (imag second))
+      (* r1 r2)
+      (* i1 i2)
       )
     (+
-      (* (imag first) (real second))
-      (* (real first) (imag second))
-      )))
+      (* i1 r2)
+      (* r1 i2)
+      ))))

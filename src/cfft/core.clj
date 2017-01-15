@@ -16,15 +16,15 @@
 (defn sum [l] (reduce + l))
 (defn complex-sum [l] (reduce complex-add l))
 
+(defn fft-sample-mapper [m k M] (/ (* m k) M))
+
 (defn fft-nd-sample [matIndices mat el counters limits]
   "Calculates part of the sum of one sample."
   (complex-mult (euler-expt
     (*
       neg2pi
       (sum
-        (map
-          (fn [m k M] (/ (* m k) M))
-          counters matIndices limits))))
+        (map fft-sample-mapper counters matIndices limits))))
     el))
 
 (defn ifft-nd-sample [matIndices mat el counters limits]
@@ -34,9 +34,7 @@
         (*
           pos2pi
           (sum
-            (map
-              (fn [m k M] (/ (* m k) M))
-              counters matIndices limits))))
+            (map fft-sample-mapper counters matIndices limits))))
         el)
     (reduce * (map (fn [n] (/ 1 n)) limits)))
     )
@@ -46,12 +44,12 @@
   "Computes the fourier transform of an n-dimensional matrix m"
   (matrix-apply
     (fn [mat el indices]
-      (matrix-summation complex-add (partial fft-nd-sample indices) mat :all-args))
-    m :all-args))
+      (matrix-summation complex-add (partial fft-nd-sample indices) mat))
+    m))
 
 (defn ifft [m]
   "Computes the inverse fourier transform of an n-dimensional matrix m"
   (matrix-apply
     (fn [mat el indices]
-      (matrix-summation complex-add (partial ifft-nd-sample indices) mat :all-args))
-    m :all-args))
+      (matrix-summation complex-add (partial ifft-nd-sample indices) mat))
+    m))
